@@ -62,14 +62,14 @@ while True:
                 roi = frame[rect[1]:height+rect[1], rect[0]:width+rect[0]]
 
                 # カメラフレームのうち、顔座標に相当する部分を笑い男アイコンに置き換える
-                # マスクを使い笑い男アイコンを透過させる
+                # マスクを使い、笑い男アイコン背景の黒い部分を透過させる
                 frame[rect[1]:height+rect[1], rect[0]:width+rect[0]] = numpy.where(numpy.expand_dims(binary == 255, -1), icon, roi)
 
     cv2.imshow('result', frame)
 
     # 何らかのキーが入力されると終了
     k = cv2.waitKey(1)
-    if k != -
+    if k != -1:
         break
 
 cap.release()
