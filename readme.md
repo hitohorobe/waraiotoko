@@ -6,3 +6,8 @@ https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcas
 1. opencv、numpyをインストール
 1. 実行
 1. 何らかのキーを入力すると終了
+
+# 参考  
+https://qiita.com/FukuharaYohei/items/ec6dce7cc5ea21a51a82  
+https://qiita.com/watyanabe164/items/652617c7ad577daa38d0  
+https://www.pynote.info/entry/opencv-image-composing-by-mask  

@@ -3,10 +3,12 @@ import numpy
 
 # カメラキャプチャ
 cap = cv2.VideoCapture(0)
-# 笑い男の動画かgifアニメ
-gif = cv2.VideoCapture('icon2.mp4')
+# 笑い男の動画かgifアニメ　背景が黒いやつ
+gif = cv2.VideoCapture('icon.mp4')
 
 # 分類器
+# ここからダウンロード 
+# https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml
 face_cascade_path = 'haarcascade_frontalface_default.xml'
 face_cascade = cv2.CascadeClassifier(face_cascade_path)
 
@@ -17,13 +19,13 @@ while True:
     frame = cv2.flip(frame, 1)
 
     # 笑い男アニメから1フレームずつ取得
-    grabbed, icon = gif.read()
+    g, icon = gif.read()
     # ループ再生
-    if not grabbed:
+    if not g:
         gif.set(cv2.CAP_PROP_POS_FRAMES, 0)
         continue
 
-    # 動画の縦横比を計算
+    # 笑い男アイコンのもともとの縦横比を計算
     orig_height, orig_width = icon.shape[:2]
     aspect_ratio = orig_width/orig_height
 
@@ -67,7 +69,7 @@ while True:
 
     # 何らかのキーが入力されると終了
     k = cv2.waitKey(1)
-    if k != -1:
+    if k != -
         break
 
 cap.release()
